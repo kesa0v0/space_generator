@@ -2,12 +2,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import generate.perlin as perlin
+import generate.star as star
+
+
+def normalization(a, size=1):
+    return size * (a - np.min(a)) / np.ptp(a)
 
 
 class SpaceGenerator:
     def __init__(self):
-        lin = np.linspace(0, 5, 1000, endpoint=False)
-        x, y = np.meshgrid(lin, lin)  # FIX3: I thought I had to invert x and y here but it was a mistake
+        lin = np.linspace(0, 5, 500, endpoint=False)
+        x, y = np.meshgrid(lin, lin)
 
-        plt.imshow(perlin.perlin(x, y, seed=123), origin='upper')
+        pl = perlin.perlin(x, y, seed=123)[:250]
+        pl = normalization(pl)
+
+        print(np.shape(pl), np.max(pl), np.min(pl))
+        gen_star = star.GenStar()
+        map_star = gen_star.conv(pl, (5, 5), 5)
+
+        plt.imshow(pl, origin='upper')
+        plt.colorbar()
         plt.show()
