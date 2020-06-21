@@ -14,7 +14,7 @@ class SpaceGenerator:
         lin = np.linspace(0, 5, 500, endpoint=False)
         x, y = np.meshgrid(lin, lin)
 
-        pl = perlin.perlin(x, y, seed=123)[:250]
+        pl = perlin.perlin(x, y, seed=1230)[:250]
         pl = normalization(pl)
 
         print(np.shape(pl), np.max(pl), np.min(pl))
