@@ -9,6 +9,13 @@ class GenStar:
         for cy in range(0, np.shape(array)[0], stride):
             for cx in range(0, np.shape(array)[1], stride):
                 convsum = np.sum(array[cy:cy + size[1], cx:cx + size[0]])
-                print(convsum)
+                print(cx, convsum)
 
-        return ""
+                if convsum > 10:
+                    array_star[cy][cx] = 0.5
+                else:
+                    array_star[cy][cx] = 0
+
+            print('=' * 25, cy, '=' * 25)
+
+        return array_star

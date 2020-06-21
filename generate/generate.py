@@ -21,6 +21,6 @@ class SpaceGenerator:
         gen_star = star.GenStar()
         map_star = gen_star.conv(pl, (5, 5), 5)
 
-        plt.imshow(pl, origin='upper')
+        plt.imshow(map_star, origin='upper')
         plt.colorbar()
         plt.show()
