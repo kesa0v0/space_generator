@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import PIL.Image
 
 import generate.perlin as perlin
 import generate.star as star
@@ -24,3 +25,5 @@ class SpaceGenerator:
         plt.imshow(map_star, origin='upper')
         plt.colorbar()
         plt.show()
+
+
