@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import PIL.Image
+import PIL.Image as Image
 
 import generate.perlin as perlin
 import generate.star as star
